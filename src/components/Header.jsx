@@ -1,4 +1,4 @@
-"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -43,6 +43,7 @@ import { Input } from "@/components/ui/input"
 import { useContext } from "react"
 import { SearchContext } from "@/contexts/SearchContext"
 import me from '@/assets/me.jpeg'
+import { ModeToggle } from "./ModeToggle"
 const Header = () => {
     const {handleSearchChange, searchQuery} = useContext(SearchContext)
   return (
@@ -57,15 +58,16 @@ const Header = () => {
             </BreadcrumbList>
         </Breadcrumb>
         <div className="relative ml-auto flex-1 md:grow-0">
-        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-        <Input
-            type="search"
-            placeholder="Search..."
-            value={searchQuery} 
-            onChange={handleSearchChange} 
-            className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
-        />
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input
+                type="search"
+                placeholder="Search..."
+                value={searchQuery} 
+                onChange={handleSearchChange} 
+                className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
+            />
         </div>
+        <ModeToggle/>
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button
