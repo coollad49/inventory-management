@@ -3,6 +3,7 @@ import "./globals.css";
 import {cn} from '@/lib/utils'
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ProductProvider } from "@/contexts/ProductContext";
+import { SearchProvider } from "@/contexts/SearchContext";
 
 const fontsans = FontSans({
     subsets: ["latin"],
@@ -18,14 +19,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <ProductProvider>
+        <SearchProvider>
           <ThemeProvider 
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <body className={cn("", fontsans.variable)}>{children}</body>
-        </ThemeProvider>
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <body className={cn("", fontsans.variable)}>{children}</body>
+          </ThemeProvider>
+        </SearchProvider>
       </ProductProvider>
       
       

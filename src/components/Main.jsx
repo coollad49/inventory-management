@@ -1,24 +1,9 @@
+"use client"
 import {
-  ChevronLeft,
-  ChevronRight,
-  Copy,
-  CreditCard,
   File,
-  Home,
-  LineChart,
   ListFilter,
-  MoreVertical,
-  Package,
-  Package2,
-  PanelLeft,
-  Search,
-  Settings,
-  ShoppingCart,
-  Truck,
-  Users2,
 } from "lucide-react"
 
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -56,9 +41,11 @@ import Metric from "@/components/Metric"
 import ProductForm from "@/components/ProductForm"
 import { useContext } from "react"
 import { ProductContext } from "@/contexts/ProductContext"
+import { SearchContext } from "@/contexts/SearchContext"
 
 const Main = ()=>{
     const {products, date} = useContext(ProductContext);
+    const {filteredProducts} = useContext(SearchContext)
     return(
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3">
           <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-3">
@@ -128,12 +115,12 @@ const Main = ()=>{
                           <TableHead className="hidden sm:table-cell">
                             Category
                           </TableHead>
-                          <TableHead className="hidden sm:table-cell">Quantity</TableHead>
-                          <TableHead className="">Date</TableHead>
+                          <TableHead className="table-cell">Quantity</TableHead>
+                          <TableHead className="hidden md:table-cell">Date</TableHead>
                         </TableRow>
                       </TableHeader>
                         <TableBody>
-                          {products.map((product, idx)=>(
+                          {filteredProducts.map((product, idx)=>(
                             <Product key={idx} id={product.id} desc={product.description} name={product.name} cat={product.category} quantity={product.quantity} date={date(product.date)} />
                           ))}
                         </TableBody>

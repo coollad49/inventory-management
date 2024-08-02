@@ -30,13 +30,15 @@ const Product = ({id, name, desc, cat, quantity, date})=>{
             <TableCell className="hidden sm:table-cell">
                 {cat}
             </TableCell>
-            <TableCell className="hidden sm:table-cell">
+            <TableCell className="table-cell">
                 <Badge className="text-xs" variant="secondary">
                     {quantity}
                 </Badge>
             </TableCell>
-            <TableCell className="flex items-center justify-between">
+            <TableCell className="hidden md:table-cell">
                 <div>{date} </div>
+            </TableCell>
+            <TableCell>
                 <Button onClick={()=>deleteProduct(id)} variant="destructive" size="icon"><Trash2 className="h-4 w-4" /></Button>
             </TableCell>
         </TableRow>
