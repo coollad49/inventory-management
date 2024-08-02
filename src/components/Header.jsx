@@ -42,7 +42,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { useContext } from "react"
 import { SearchContext } from "@/contexts/SearchContext"
-
+import me from '@/assets/me.jpeg'
 const Header = () => {
     const {handleSearchChange, searchQuery} = useContext(SearchContext)
   return (
@@ -74,7 +74,7 @@ const Header = () => {
                 className="overflow-hidden rounded-full"
                 >
                 <Image
-                    src="/placeholder-user.jpg"
+                    src={me}
                     width={36}
                     height={36}
                     alt="Avatar"

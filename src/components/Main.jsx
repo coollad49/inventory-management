@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import {
   File,
   ListFilter,
@@ -96,9 +96,9 @@ const Main = ()=>{
               <TabsContent value="week">
                 <Card x-chunk="dashboard-05-chunk-3">
                   <CardHeader className="px-7">
-                    <CardTitle>Orders</CardTitle>
+                    <CardTitle>Products</CardTitle>
                     <CardDescription>
-                      Recent orders from your store.
+                      Recent products from your store.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
