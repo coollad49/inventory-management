@@ -4,6 +4,7 @@ import {cn} from '@/lib/utils'
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ProductProvider } from "@/contexts/ProductContext";
 import { SearchProvider } from "@/contexts/SearchContext";
+import { Analytics } from "@vercel/analytics/react"
 
 const fontsans = FontSans({
     subsets: ["latin"],
@@ -26,7 +27,10 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            <body className={cn("", fontsans.variable)}>{children}</body>
+            <body className={cn("", fontsans.variable)}>
+              {children}
+              <Analytics/>
+            </body>
           </ThemeProvider>
         </SearchProvider>
       </ProductProvider>
