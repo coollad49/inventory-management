@@ -7,9 +7,13 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
+import { Trash2 } from "lucide-react"
+import { Button } from "./ui/button"
+import { useContext } from "react"
+import { ProductContext } from "@/contexts/ProductContext"
 
-
-const Item = ({id, name, desc, cat, status, date})=>{
+const Product = ({id, name, desc, cat, quantity, date})=>{
+    const {deleteProduct} = useContext(ProductContext)
     return(
         <TableRow className="">
             <TableCell className="font-medium">
@@ -28,14 +32,15 @@ const Item = ({id, name, desc, cat, status, date})=>{
             </TableCell>
             <TableCell className="hidden sm:table-cell">
                 <Badge className="text-xs" variant="secondary">
-                    {status}
+                    {quantity}
                 </Badge>
             </TableCell>
-            <TableCell className="">
-                {date}
+            <TableCell className="flex items-center justify-between">
+                <div>{date} </div>
+                <Button onClick={()=>deleteProduct(id)} variant="destructive" size="icon"><Trash2 className="h-4 w-4" /></Button>
             </TableCell>
         </TableRow>
     )
 }
 
-export default Item;
+export default Product;

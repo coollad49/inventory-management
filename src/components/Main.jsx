@@ -51,13 +51,18 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import Item from "./Item"
+import Product from "./Product"
+import Metric from "@/components/Metric"
+import ProductForm from "@/components/ProductForm"
+import { useContext } from "react"
+import { ProductContext } from "@/contexts/ProductContext"
 
 const Main = ()=>{
+    const {products, date} = useContext(ProductContext);
     return(
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3">
           <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-3">
-            
+            <ProductForm/>
             <Tabs defaultValue="week">
               <div className="flex items-center">
                 <TabsList>
@@ -123,12 +128,14 @@ const Main = ()=>{
                           <TableHead className="hidden sm:table-cell">
                             Category
                           </TableHead>
-                          <TableHead className="hidden sm:table-cell">Status</TableHead>
+                          <TableHead className="hidden sm:table-cell">Quantity</TableHead>
                           <TableHead className="">Date</TableHead>
                         </TableRow>
                       </TableHeader>
                         <TableBody>
-                            {/* here */}
+                          {products.map((product, idx)=>(
+                            <Product key={idx} id={product.id} desc={product.description} name={product.name} cat={product.category} quantity={product.quantity} date={date(product.date)} />
+                          ))}
                         </TableBody>
                     </Table>
                   </CardContent>
