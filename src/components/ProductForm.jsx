@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from './ui/card';
 import {
   Select,
@@ -38,7 +38,7 @@ const ProductForm = ()=>{
       };
 
     return(
-        <Card className="lg:w-[40%] w-full">
+        <Card className="md:w-[40%]">
             <CardHeader>
                 <CardTitle className="capitalize">Add to Inventory</CardTitle>
                 <CardDescription>Your inventory kinda look empty</CardDescription>

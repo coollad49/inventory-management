@@ -12,7 +12,7 @@ const fontsans = FontSans({
   });
 
 export const metadata = {
-  title: "Track My Pastry",
+  title: "Track My Inventory",
   description: "App that tracks your pastry, inventory",
 };
 
