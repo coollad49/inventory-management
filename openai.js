@@ -2,8 +2,7 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
-  apiKey:
-    "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",
+  apiKey: process.env.NEXT_PUBLIC_LLMA_API_KEY,
   defaultHeaders: {
     "HTTP-Referer": "managemyinventory.vercel.app", // Optional, for including your app on openrouter.ai rankings.
     "X-Title": "ManagemyInventory", // Optional. Shows in rankings on openrouter.ai.
