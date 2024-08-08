@@ -1,6 +1,6 @@
 "use client"
 import { useState, createContext, useEffect } from 'react'
-import { firestore } from "@/firebase";
+import { firestore } from "@/app/firebase/config";
 import { doc, collection, getDocs, setDoc, getDoc, deleteDoc, addDoc } from 'firebase/firestore';
 
 
